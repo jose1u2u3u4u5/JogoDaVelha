@@ -13,47 +13,57 @@
         <style>
             .celula{
                 border: solid 1px black;
+                border-width: 50;
+                border-color: black;    
+                padding: 100px;            
                 text-align: center;
-                font-size: 40px;
+                font-size: 60px;
+                color: #f5f5f5;
+                font-family: 'Courier New'
+                
             }
         </style>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="color: rgb(51, 52, 82);">
+              <h2 class="text-center" id="tituloJogador">Jogador 1, agora é sua vez [O]</h2>
+        </div>
+       
+        <div class="row" >
             <div class="col-4 celula">
-                <span onclick="">+</span>
+                <span style="color: red;" onclick="trocaValor(this,0,0,) ">+</span>
             </div>
             <div class="col-4 celula">
-                <span>+</span>
+                <span style="color: blue" onclick="trocaValor(this,0,1)">+</span>
             </div>
             <div class="col-4 celula">
-               <span>+</span>
+               <span style="color:red" onclick="trocaValor(this,0,2)">+</span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-4 celula">
-               <span>+</span>
+               <span style="color:blue"  onclick="trocaValor(this,1,0)">+</span>
             </div>
             <div class="col-4 celula">
-               <span>+</span>
+               <span  style="color:red" onclick="trocaValor(this,1,1)">+</span>
             </div>
             <div class="col-4 celula">
-               <span>+</span>
+               <span  style="color:blue" onclick="trocaValor(this,1,2)">+</span>
             </div>
         </div>
 
         <div class="row">
             <div class="col-4 celula">
-               <span>+</span>
+               <span  style="color:red" onclick="trocaValor(this,2,0)">+</span>
             </div>
             <div class="col-4 celula">
-               <span>+</span>
+               <span  style="color:blue" onclick="trocaValor(this,2,1)">+</span>
             </div>
             <div class="col-4 celula">
-               <span>+</span>
+               <span  style="color:red" onclick="trocaValor(this,2,2)">+</span>
             </div>
         </div>
     </div>
@@ -65,6 +75,196 @@
         ["","",""]
     ];
 
+    var numeroJogador = 1;
+
+    
+
     console.log(matrizJogo);
+
+    function trocaValor(span, linha, coluna,) 
+    {   if (matrizJogo[linha][coluna] == "") 
+    {
+        
+    
+        if (numeroJogador == 1)
+        {   
+            matrizJogo[linha][coluna] = "O";
+
+            span.innerHTML = "O";
+            span.style.color = "blue"
+
+            numeroJogador = 2;
+
+            //span.onclick = undefined
+
+            document.getElementById('tituloJogador').innerHTML = 
+              'Jogador 2, agora é sua vez [X]';
+
+
+        } else {
+            matrizJogo[linha][coluna] = "X";
+
+            span.innerHTML = "X";
+            span.style.color = "red"
+            numeroJogador = 1;
+
+            document.getElementById('tituloJogador').innerHTML = 
+              'Jogador 1, agora é sua vez [O]';
+
+        }
+
+    } else 
+    {
+        alert("celula já selecionada")
+    }
+        //var audio = new Audio('/audio/Pânico Retrô - Zina Ronaldo.mp3');
+        //audio.play();
+
+    if((matrizJogo[0][0] == "O" && matrizJogo[0][1]) == "O" &&
+        (matrizJogo [0][2]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][0] == "X" && matrizJogo[0][1]) == "X" && //LINHA
+        (matrizJogo [0][2]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[1][0] == "O" && matrizJogo[1][1]) == "O" &&
+        (matrizJogo [1][2]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[1][0] == "X" && matrizJogo[1][1]) == "X" && //LINHA
+        (matrizJogo [1][2]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[2][0] == "O" && matrizJogo[2][1]) == "O" &&
+        (matrizJogo [2][2]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[2][0] == "X" && matrizJogo[2][1]) == "X" && //LINHA
+        (matrizJogo [2][2]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[0][0] == "O" && matrizJogo[1][0]) == "O" &&
+        (matrizJogo [2][0]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][0] == "X" && matrizJogo[1][0]) == "X" && //COLUNA
+        (matrizJogo [2][0]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[0][1] == "O" && matrizJogo[1][1]) == "O" &&
+        (matrizJogo [2][1]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][1] == "X" && matrizJogo[1][1]) == "X" && //COLUNA
+        (matrizJogo [2][1]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[0][2] == "O" && matrizJogo[1][2]) == "O" && //COLUNA
+        (matrizJogo [2][2]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][2] == "X" && matrizJogo[1][2]) == "X" &&
+        (matrizJogo [2][2]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[0][0] == "O" && matrizJogo[1][1]) == "O" && //DIAGONAL
+        (matrizJogo [2][2]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][0] == "X" && matrizJogo[1][1]) == "X" &&
+        (matrizJogo [2][2]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }if((matrizJogo[0][2] == "O" && matrizJogo[1][1]) == "O" && //DIAGONAL
+        (matrizJogo [2][0]) == "O" )
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 1"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    } if ((matrizJogo[0][2] == "X" && matrizJogo[1][1]) == "X" &&
+        (matrizJogo [2][0]) == "X")
+    {
+        document.getElementById('tituloJogador').innerHTML = 
+        "Vencedor Jogador 2"
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+    }else
+    {
+        if((matrizJogo[0][0] != "") &&
+        (matrizJogo[1][1] !="") && (matrizJogo[2][2] !="")
+         &&(matrizJogo[1][0]!="")&&(matrizJogo[1][2]!="")&&(matrizJogo[2][0]!="")
+         &&(matrizJogo[2][1]!="") )
+         {
+         var audio = new Audio('/audio/Jurassic Park Theme Harmonica.mp3');
+        audio.play();
+        document.getElementById('tituloJogador').innerHTML = 
+        "Deu Velha!" }
+        
+
+    }
+
+
+    }
+
 </script>
 </html>
